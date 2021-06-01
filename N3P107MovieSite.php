@@ -1,36 +1,60 @@
-<?php
+	<?php
 session_start();
-$_SESSION['username'] = $_POST['user'];
-$_SESSION['userpass'] = $_POST['pass'];
-$_SESSION['authuser'] = 0;
 
-//Check username and password information
-if (($_SESSION['username'] == 'Joe') and
-    ($_SESSION['userpass'] == '12345')) {
-    $_SESSION['authuser'] = 1;
-} else {
-    echo 'Sorry, but you don\'t have permission to view this page!';
+//Check user permission
+if ($_SESSION['authuser'] != 1){
+    echo "Sorry, but you don't have permission to view this page!";
     exit();     
 }
 ?>
 <html>
- <head>
-  <title>Find my Favorite Movie!</title>;
- </head>
- <body>
+ <head><title>
 <?php
-include "N3P101header.php";
-$myfavmovie = urlencode("Life of Brian");
-echo "<a href='N3P107MovieSite.php?favmovie=$myfavmovie'>";
-echo "Click here to see information about my favorite movie!"; 
-echo "</a>";
+if (isset($_GET["favmovie"])) {
+	echo " - ";
+	echo $_GET["favmovie"];
+}
 ?>
-<br/>
-<a href="N3P107MovieSite.php?movienum=5"> Click here to see my top 5 movies.</a>
-<br/>
-<a href="N3P107MovieSite.php?movienum=10"> Click here to see my top 10 movies.</a>
+</title></head>
+<body >
+<?php 
+include "N3P101header.php";
+
+function listmovies_1() {
+	echo "1. Life of Brian < br/ > ";
+	echo "2. Stripes < br/ > ";
+	echo "3. Office Space < br/ > ";
+	echo "4. The Holy Grail < br/ > ";
+	echo "5. Matrix < br/ > ";
+}
+function listmovies_2() {
+	echo "6. Terminator 2 < br/ > ";
+	echo "7. Star Trek IV < br/ > ";
+	echo "8. Close Encounters of the Third Kind < br/ > ";
+	echo "9. Sixteen Candles < br/ > ";
+	echo "10. Caddyshack < br/ > ";
+}
+if (isset($_GET["favmovie"])) {
+	echo "Welcome to our site, ";
+	echo $_SESSION["username"];
+	echo "! < br/ > ";
+	echo "My favorite movie is ";
+	echo $_GET["favmovie"];
+	echo " < br/ > ";
+	$movierate = 5;
+	echo "My movie rating for this movie is: ";
+	echo $movierate;
+} else {
+	echo "My top ";
+	echo $_GET["movienum"];
+	echo " movies are:";
+	echo " <br/> ";
+	listmovies_1();
+	if ($_GET["movienum"] == 10) {
+		listmovies_2();
+	}
+}
+?>
 </body>
 </html>
-
-
 

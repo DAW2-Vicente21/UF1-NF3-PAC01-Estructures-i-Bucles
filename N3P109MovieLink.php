@@ -21,16 +21,21 @@ if (($_SESSION['username'] == 'Joe') and
 <?php
 include "N3P101header.php";
 $myfavmovie = urlencode("Life of Brian");
-echo "<a href='N3P107MovieSite.php?favmovie=$myfavmovie'>";
+echo "<a href='N3P110MovieSite.php?favmovie=$myfavmovie'>";
 echo "Click here to see information about my favorite movie!"; 
 echo "</a>";
 ?>
 <br/>
-<a href="N3P107MovieSite.php?movienum=5"> Click here to see my top 5 movies.</a>
+<a href="N3P110moviesite.php"> Click here to see my 10 movies. </a>
 <br/>
-<a href="N3P107MovieSite.php?movienum=10"> Click here to see my top 10 movies.</a>
+<a href="N3P110moviesite.php?sorted=true"> Click here to see my
+ top 10 movies sorted alphabetically. </a>
 </body>
 </html>
+
+
+
+
 
 
 

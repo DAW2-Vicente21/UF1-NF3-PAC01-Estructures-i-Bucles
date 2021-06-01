@@ -21,16 +21,28 @@ if (($_SESSION['username'] == 'Joe') and
 <?php
 include "N3P101header.php";
 $myfavmovie = urlencode("Life of Brian");
-echo "<a href='N3P107MovieSite.php?favmovie=$myfavmovie'>";
+echo "<a href='N3P115MovieSite.php?favmovie=$myfavmovie'>";
 echo "Click here to see information about my favorite movie!"; 
 echo "</a>";
 ?>
 <br/>
-<a href="N3P107MovieSite.php?movienum=5"> Click here to see my top 5 movies.</a>
+Or choose how many movies you would like to see:
 <br/>
-<a href="N3P107MovieSite.php?movienum=10"> Click here to see my top 10 movies.</a>
+<form method="post" action="N3P115MovieSite.php" >
+<p> Enter number of movies (up to 10):
+<input type="text" name="num" maxlength="2" size="2"/>
+<br/>
+Check to sort them alphabetically:
+<input type="checkbox" name="sorted" />
+</p>
+<input type="submit" name="submit" value="Submit"/>
+</form>
 </body>
 </html>
+
+
+
+
 
 
 

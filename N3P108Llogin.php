@@ -7,7 +7,7 @@ session_unset();
  </head>
  <body>
   <?php include "N3P101header.php";?>
-  <form method="post" action="N3P114MovieLink.php">
+  <form method="post" action="N3P109MovieLink.php">
    <p>Enter your username: 
     <input type="text" name="user"/>
    </p>

@@ -41,6 +41,8 @@ if($mesActual >= '12' || $mesActual <= '03'){
     echo "Good Winter";
 }
 
+// Ejercici 4
+
 
 ?>
 <html>
@@ -49,11 +51,60 @@ if($mesActual >= '12' || $mesActual <= '03'){
 <body>
 
     
+<style>
+    .red   { color: red; }
+    .green { color: green; }
+    .blue  { color: blue; }
+
+</style>
+
+<form>
+    <select name="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <input type="submit" value="Color!">
+</form>
+
+<form method="post">	
+	<input type="text" name="subject" id="subject" value="Text">
+</form>
+	
+
+<?php
+
+    if ( isset($_GET['color']) && isset($_POST['subject'])) {
+       		print '<span class="'.$_GET['color'].'"> '.$_POST['subject'].' </span>';
+
+    }
+
+?>
+
+<br>	
+
+<span> Save Cookies? </span>
+
+<form method="post">
+	<input type="submit" name="si" id="si" value="Yes">
+</form>
+
+<?php 
+
+if(isset($_COOKIE["info"])){
+    echo $_COOKIE["info"];
+} else{
+    echo "Cookie NOT saved";
+}
+
+if(isset($_POST['si'])){
+	setcookie("info", "Cookie SAVED", time()+30*24*60*60);
+}
+
+
+?>
     
-
-
     <?php include "N3P1Footer.php";?>
 
 </body>
 </html>
-
